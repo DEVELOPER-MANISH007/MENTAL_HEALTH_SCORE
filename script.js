@@ -1,7 +1,8 @@
 (() => {
   "use strict";
 
-  const API_BASE = (window.API_BASE_URL || "http://127.0.0.1:8000").replace(/\/$/, "");
+  const localHost = ["localhost", "127.0.0.1"].includes(window.location.hostname);
+  const API_BASE = (window.API_BASE_URL || (localHost ? "http://127.0.0.1:8000" : "/api")).replace(/\/$/, "");
 
   const form = document.getElementById("predict-form");
   const submitBtn = document.getElementById("submit-btn");
